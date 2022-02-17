@@ -18,6 +18,9 @@ import { TranslationsContext } from '../hooks/TranslationsContext'
 import URLWarning from "../components/CardNav/urlWarning";
 
 import Menu from '../components/Menu'
+import Token from './Trending/Token'
+
+import '../assets/main.css'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -128,6 +131,7 @@ export default function App() {
                   <Popups />
                   <Web3ReactManager>
                     <Switch>
+                      <Route exact strict path="/token" component={Token} />
                       <Route exact strict path="/swap" component={Swap} />
                       <Route exact strict path="/find" component={PoolFinder} />
                       <Route exact strict path="/pool" component={Pool} />

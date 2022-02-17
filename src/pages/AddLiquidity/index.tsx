@@ -36,6 +36,8 @@ import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
 
+import '../../assets/style.css'
+
 export default function AddLiquidity({
   match: {
     params: { currencyIdA, currencyIdB },
@@ -49,8 +51,8 @@ export default function AddLiquidity({
 
   const oneCurrencyIsWETH = Boolean(
     chainId &&
-      ((currencyA && currencyEquals(currencyA, WETH[chainId])) ||
-        (currencyB && currencyEquals(currencyB, WETH[chainId])))
+    ((currencyA && currencyEquals(currencyA, WETH[chainId])) ||
+      (currencyB && currencyEquals(currencyB, WETH[chainId])))
   )
   const expertMode = useIsExpertMode()
 
@@ -175,9 +177,8 @@ export default function AddLiquidity({
           setAttemptingTxn(false)
 
           addTransaction(response, {
-            summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${
-              currencies[Field.CURRENCY_A]?.symbol
-            } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
+            summary: `Add ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)} ${currencies[Field.CURRENCY_A]?.symbol
+              } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)} ${currencies[Field.CURRENCY_B]?.symbol}`,
           })
 
           setTxHash(response.hash)
@@ -226,9 +227,8 @@ export default function AddLiquidity({
           </UIKitText>
         </Row>
         <UIKitText small textAlign="left" padding="8px 0 0 0 " style={{ fontStyle: 'italic' }}>
-          {`Output is estimated. If the price changes by more than ${
-            allowedSlippage / 100
-          }% your transaction will revert.`}
+          {`Output is estimated. If the price changes by more than ${allowedSlippage / 100
+            }% your transaction will revert.`}
         </UIKitText>
       </AutoColumn>
     )
@@ -247,9 +247,8 @@ export default function AddLiquidity({
     )
   }
 
-  const pendingText = `Supplying ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
-    currencies[Field.CURRENCY_A]?.symbol
-  } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
+  const pendingText = `Supplying ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${currencies[Field.CURRENCY_A]?.symbol
+    } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
 
   const handleCurrencyASelect = useCallback(
     (currA: Currency) => {
@@ -289,6 +288,23 @@ export default function AddLiquidity({
 
   return (
     <>
+      <div className="trendingDiv_top">
+        <ul>
+          <li className='token_H1'>Trending</li>
+          <li><span style={{ color: '#000' }}>#1</span> demo</li>
+          <li><span style={{ color: '#000' }}>#2</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#3</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#4</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#5</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#6</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#7</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#8</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#9</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#10</span> demo</li>
+        </ul>
+      </div>
+
+
       <CardNav activeIndex={1} />
       <AppBody>
         <AddRemoveTabs adding />
@@ -316,13 +332,13 @@ export default function AddLiquidity({
             <AutoColumn gap="20px">
               {noLiquidity && (
                 <ColumnCenter>
-                  <Pane style={{background:'red'}}>
+                  <Pane style={{ background: 'red' }}>
                     <AutoColumn gap="12px">
-                      <UIKitText style={{color:'white'}}>{TranslateString(1158, 'WARNING! This pool does not exist!')}</UIKitText>
-                      <UIKitText style={{color:'white'}}>
+                      <UIKitText style={{ color: 'white' }}>{TranslateString(1158, 'WARNING! This pool does not exist!')}</UIKitText>
+                      <UIKitText style={{ color: 'white' }}>
                         {TranslateString(1160, 'When you create the first dex pool, you define the initial price.')}
                       </UIKitText>
-                      <UIKitText style={{color:'white'}}>
+                      <UIKitText style={{ color: 'white' }}>
                         {TranslateString(1162, 'This change is irreversible.')}
                       </UIKitText>
                     </AutoColumn>

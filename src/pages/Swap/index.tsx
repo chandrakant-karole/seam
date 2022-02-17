@@ -36,6 +36,8 @@ import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import AppBody from '../AppBody'
 
+import '../../assets/style.css'
+
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
   const TranslateString = useI18n()
@@ -83,13 +85,13 @@ const Swap = () => {
 
   const parsedAmounts = showWrap
     ? {
-        [Field.INPUT]: parsedAmount,
-        [Field.OUTPUT]: parsedAmount,
-      }
+      [Field.INPUT]: parsedAmount,
+      [Field.OUTPUT]: parsedAmount,
+    }
     : {
-        [Field.INPUT]: independentField === Field.INPUT ? parsedAmount : trade?.inputAmount,
-        [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount,
-      }
+      [Field.INPUT]: independentField === Field.INPUT ? parsedAmount : trade?.inputAmount,
+      [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount,
+    }
 
   const { onSwitchTokens, onCurrencySelection, onUserInput, onChangeRecipient } = useSwapActionHandlers()
   const isValid = !swapInputError
@@ -242,7 +244,7 @@ const Swap = () => {
 
   const handleMaxInput = useCallback(() => {
     if (maxAmountInput) {
-      onUserInput(Field.INPUT, (parseFloat(maxAmountInput.toExact())-parseFloat(maxAmountInput.toExact())*5/100).toString())
+      onUserInput(Field.INPUT, (parseFloat(maxAmountInput.toExact()) - parseFloat(maxAmountInput.toExact()) * 5 / 100).toString())
     }
   }, [maxAmountInput, onUserInput])
 
@@ -258,6 +260,23 @@ const Swap = () => {
 
   return (
     <>
+      <div className="trendingDiv_top">
+        <ul>
+          <li className='token_H1'>Trending</li>
+          <li><span style={{ color: '#000' }}>#1</span> demo</li>
+          <li><span style={{ color: '#000' }}>#2</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#3</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#4</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#5</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#6</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#7</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#8</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#9</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#10</span> demo</li>
+        </ul>
+      </div>
+
+
       <TokenWarningModal
         isOpen={urlLoadedTokens.length > 0 && !dismissTokenWarning}
         tokens={urlLoadedTokens}
@@ -361,7 +380,7 @@ const Swap = () => {
                   <AutoColumn gap="4px">
                     {Boolean(trade) && (
                       <RowBetween align="center">
-                        <Text style={{color:'#FFD700'}} fontSize="14px">{TranslateString(1182, 'Price')}</Text>
+                        <Text style={{ color: '#FFD700' }} fontSize="14px">{TranslateString(1182, 'Price')}</Text>
                         <TradePrice
                           price={trade?.executionPrice}
                           showInverted={showInverted}
@@ -371,8 +390,8 @@ const Swap = () => {
                     )}
                     {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
                       <RowBetween align="center">
-                        <Text fontSize="14px" style={{color:'#FFD700'}}>{TranslateString(88, 'Slippage Tolerance')}</Text>
-                        <Text fontSize="14px" style={{color:'#FFD700'}}>{allowedSlippage / 100}%</Text>
+                        <Text fontSize="14px" style={{ color: '#FFD700' }}>{TranslateString(88, 'Slippage Tolerance')}</Text>
+                        <Text fontSize="14px" style={{ color: '#FFD700' }}>{allowedSlippage / 100}%</Text>
                       </RowBetween>
                     )}
                   </AutoColumn>

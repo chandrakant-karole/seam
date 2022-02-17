@@ -20,6 +20,8 @@ import useI18n from 'hooks/useI18n'
 import PageHeader from 'components/PageHeader'
 import AppBody from '../AppBody'
 
+import '../../assets/style.css'
+
 export default function Pool() {
   const theme = useContext(ThemeContext)
   const { account } = useActiveWeb3React()
@@ -56,6 +58,23 @@ export default function Pool() {
 
   return (
     <>
+      <div className="trendingDiv_top">
+        <ul>
+          <li className='token_H1'>Trending</li>
+          <li><span style={{ color: '#000' }}>#1</span> demo</li>
+          <li><span style={{ color: '#000' }}>#2</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#3</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#4</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#5</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#6</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#7</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#8</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#9</span>  demo</li>
+          <li><span style={{ color: '#000' }}>#10</span> demo</li>
+        </ul>
+      </div>
+
+
       <CardNav activeIndex={1} />
       <AppBody>
         <PageHeader
@@ -106,13 +125,13 @@ export default function Pool() {
               )}
 
               <div>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0', color:'#FFD700' }}>
+                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0', color: '#FFD700' }}>
                   {TranslateString(106, "Don't see a pool you joined?")}{' '}
                   <StyledInternalLink id="import-pool-link" to="/find">
                     {TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
                 </Text>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0', color:'#FFD700' }}>
+                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0', color: '#FFD700' }}>
                   {TranslateString(1172, 'Or, if you staked your LP tokens in a farm, unstake them to see them here.')}
                 </Text>
               </div>

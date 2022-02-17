@@ -28,12 +28,8 @@ const config: MenuEntry[] = [
     initialOpenState: false,
     items: [
       {
-        label: 'Exchange',
-        href: '/',
-      },
-      {
-        label: 'Liquidity',
-        href: '/',
+        label: 'Token',
+        href: '/token',
       },
     ],
   },

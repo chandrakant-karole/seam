@@ -6,6 +6,7 @@ import useI18n from 'hooks/useI18n'
 
 const StyledNav = styled.div`
   margin-bottom: 40px;
+  margin-top: 40px;
 `
 
 function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
